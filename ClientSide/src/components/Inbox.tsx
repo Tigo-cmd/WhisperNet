@@ -34,7 +34,7 @@ const Inbox = () => {
 
     try {
       setLoading(true);
-      const response = await fetch('/api/messages/inbox', {
+      const response = await fetch('/messages/inbox', {
         headers: {
           'X-Wallet-Address': address,
           'X-Wallet-Auth': signature,

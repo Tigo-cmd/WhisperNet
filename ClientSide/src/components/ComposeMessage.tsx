@@ -36,7 +36,7 @@ const ComposeMessage = () => {
       setSending(true);
 
       // First, fetch recipient's public key
-      const keyResponse = await fetch(`/api/keys/${toAddress}`);
+      const keyResponse = await fetch(`/keys/${toAddress}`);
       if (!keyResponse.ok) {
         toast.error('Recipient public key not found. They need to register first.');
         return;
@@ -50,7 +50,7 @@ const ComposeMessage = () => {
       const encryptedMessage = await encryptMessage(message, recipientPublicKey);
 
       // Send the encrypted message
-      const response = await fetch('/api/messages/send', {
+      const response = await fetch('/messages/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

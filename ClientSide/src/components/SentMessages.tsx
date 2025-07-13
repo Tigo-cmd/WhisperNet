@@ -29,7 +29,7 @@ const SentMessages = () => {
 
     try {
       setLoading(true);
-      const response = await fetch('/api/messages/sent', {
+      const response = await fetch('/messages/sent', {
         headers: {
           'X-Wallet-Address': address,
           'X-Wallet-Auth': signature,
