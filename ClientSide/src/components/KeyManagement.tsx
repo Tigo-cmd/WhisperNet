@@ -37,7 +37,7 @@ const KeyManagement = () => {
     try {
       setRegistering(true);
       
-      const response = await fetch('/keys/register', {
+      const response = await fetch('/api/keys/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
