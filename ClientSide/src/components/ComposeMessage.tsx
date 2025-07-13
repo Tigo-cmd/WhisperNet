@@ -9,6 +9,8 @@ import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'sonner';
 import { Send } from 'lucide-react';
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://emmanueltigo.pythonanywhere.com';
+
 const ComposeMessage = () => {
   const { encryptMessage, keyPair, generateKeyPair } = useCrypto();
   const { address, signature } = useAuth();
@@ -36,7 +38,7 @@ const ComposeMessage = () => {
       setSending(true);
 
       // First, fetch recipient's public key
-      const keyResponse = await fetch(`/api/keys/${toAddress}`);
+      const keyResponse = await fetch(`${BASE_URL}/keys/${toAddress}`);
       if (!keyResponse.ok) {
         toast.error('Recipient public key not found. They need to register first.');
         return;
@@ -50,7 +52,7 @@ const ComposeMessage = () => {
       const encryptedMessage = await encryptMessage(message, recipientPublicKey);
 
       // Send the encrypted message
-      const response = await fetch('/api/messages/send', {
+      const response = await fetch(`${BASE_URL}/messages/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
