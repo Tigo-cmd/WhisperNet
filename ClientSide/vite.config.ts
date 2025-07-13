@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'https://emmanueltigo.pythonanywhere.com//icp',
+        target: 'https://emmanueltigo.pythonanywhere.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
