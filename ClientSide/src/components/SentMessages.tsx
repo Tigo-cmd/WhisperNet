@@ -10,6 +10,7 @@ interface Message {
   encrypted_body: string;
   timestamp: string;
 }
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://emmanueltigo.pythonanywhere.com';
 
 const SentMessages = () => {
   const { address, signature } = useAuth();
@@ -29,7 +30,7 @@ const SentMessages = () => {
 
     try {
       setLoading(true);
-      const response = await fetch('/api/messages/sent', {
+      const response = await fetch(`${BASE_URL}/messages/sent`, {
         headers: {
           'X-Wallet-Address': address,
           'X-Wallet-Auth': signature,

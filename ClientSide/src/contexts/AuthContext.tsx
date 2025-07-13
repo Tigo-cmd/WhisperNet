@@ -14,6 +14,9 @@ interface AuthContextType {
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://emmanueltigo.pythonanywhere.com';
+
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [address, setAddress] = useState<string | null>(null);
@@ -54,7 +57,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       // Verify signature with backend
       setAuthStatus('verifying');
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch(`${BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

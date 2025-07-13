@@ -13,6 +13,7 @@ interface Message {
   timestamp: string;
   decrypted?: string;
 }
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://emmanueltigo.pythonanywhere.com';
 
 const Inbox = () => {
   const { decryptMessage, keyPair, generateKeyPair } = useCrypto(); // Add keyPair and generateKeyPair
@@ -34,7 +35,7 @@ const Inbox = () => {
 
     try {
       setLoading(true);
-      const response = await fetch('/api/messages/inbox', {
+      const response = await fetch(`${BASE_URL}/messages/inbox`, {
         headers: {
           'X-Wallet-Address': address,
           'X-Wallet-Auth': signature,
@@ -68,7 +69,7 @@ const Inbox = () => {
       setDecryptingId(message.id);
 
       // Fetch sender's public key
-      const keyResponse = await fetch(`/api/keys/${message.from}`);
+      const keyResponse = await fetch(`${BASE_URL}/keys/${message.from}`);
       if (!keyResponse.ok) {
         toast.error('Sender public key not found');
         return;

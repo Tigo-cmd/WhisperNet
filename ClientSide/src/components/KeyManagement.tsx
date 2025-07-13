@@ -12,6 +12,8 @@ import PrivateKeyDialog from './PrivateKeyDialog';
 import { toast } from 'sonner';
 import { Key, User, Shield, AlertTriangle, Download, Upload, Lock } from 'lucide-react';
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://emmanueltigo.pythonanywhere.com';
+
 const KeyManagement = () => {
   const { 
     keyPair, 
@@ -37,7 +39,7 @@ const KeyManagement = () => {
     try {
       setRegistering(true);
       
-      const response = await fetch('/api/keys/register', {
+      const response = await fetch(`${BASE_URL}/keys/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +75,7 @@ const KeyManagement = () => {
     try {
       setLooking(true);
       
-      const response = await fetch(`/api/keys/${lookupAddress}`);
+      const response = await fetch(`${BASE_URL}/keys/${lookupAddress}`);
       
       if (response.ok) {
         const data = await response.json();
