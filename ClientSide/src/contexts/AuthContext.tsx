@@ -18,7 +18,7 @@ interface AuthContextType {
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://emmanueltigo.pythonanywhere.com';
-const WC_PROJECT_ID = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID!; // e.g. from .env
+const WC_PROJECT_ID = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || '7d9107546e8cdda967e42ce58ce9b3b0'; // e.g. from .env
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

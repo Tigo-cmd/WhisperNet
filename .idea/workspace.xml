@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7f2c46b0-7436-4784-bb49-f94b4b740e22" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientSide/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSide/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientSide/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSide/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientSide/src/contexts/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSide/src/contexts/AuthContext.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
